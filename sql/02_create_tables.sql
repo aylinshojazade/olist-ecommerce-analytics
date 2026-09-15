@@ -53,8 +53,8 @@ CREATE TABLE order_items(
     product_id VARCHAR(32),
     seller_id VARCHAR(32),
     shipping_limit_date DATETIME,
-    price DECIMAL,
-    freight_value DECIMAL,
+    price DECIMAL(6,2),
+    freight_value DECIMAL(5,2),
     PRIMARY KEY (order_id, order_item_id),
     FOREIGN KEY (order_id)
     REFERENCES orders(order_id),
@@ -69,7 +69,7 @@ CREATE TABLE order_payments(
     payment_sequential INT,
     payment_type VARCHAR(11),
     payment_installments INT,
-    payment_value DECIMAL,
+    payment_value DECIMAL(7,2),
     PRIMARY KEY (order_id, payment_sequential),
     FOREIGN KEY (order_id)
     REFERENCES orders(order_id)
@@ -91,8 +91,8 @@ CREATE TABLE order_reviews(
 CREATE TABLE geolocation(
     geolocation_id INT AUTO_INCREMENT PRIMARY KEY,
     geolocation_zip_code_prefix INT,
-    geolocation_lat DECIMAL,
-    geolocation_lng DECIMAL,
+    geolocation_lat DECIMAL(10, 8),
+    geolocation_lng DECIMAL(10, 8),
     geolocation_city VARCHAR(38),
     geolocation_state VARCHAR(2)
 );
