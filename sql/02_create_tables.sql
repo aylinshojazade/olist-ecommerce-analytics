@@ -46,10 +46,7 @@ CREATE TABLE products(
     product_weight_g INT,
     product_length_cm INT,
     product_height_cm INT,
-    product_width_cm INT,
-    FOREIGN KEY (product_category_name)
-    REFERENCES product_category_name_translation(product_category_name)
-    ON DELETE RESTRICT
+    product_width_cm INT
 );
 
 CREATE TABLE sellers(
